@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DiagCore Chat Lab - IA conversationnelle locale</title>
+<style>
+:root{color-scheme:light dark;font:16px/1.48 system-ui,Arial,sans-serif;background:#f5f7fb;color:#182a40}
+*{box-sizing:border-box}body{max-width:1050px;margin:0 auto;padding:16px}header{margin-bottom:18px}
+h1{font-size:1.5rem;margin-bottom:.25rem}h2{font-size:1.12rem}a{color:#2466ba}
+.panel{background:light-dark(white,#1b2a3a);border:1px solid light-dark(#cdd7e2,#405063);border-radius:14px;padding:16px;margin-bottom:12px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:end}.field{flex:1;min-width:230px}
+label{font-weight:600;display:block;margin-bottom:6px}select,textarea,button{font:inherit;border-radius:8px;padding:10px}
+select,textarea{width:100%;background:light-dark(white,#101d2c);border:1px solid #889db2;color:inherit}
+button{cursor:pointer;border:1px solid #375c89;background:#175899;color:white}button.secondary{background:transparent;color:inherit;border-color:#8394a8}
+button:disabled{opacity:.5;cursor:not-allowed}.help{font-size:.89rem;color:light-dark(#435970,#b1c3d4)}
+#messages{min-height:240px;max-height:480px;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.bubble{padding:10px 13px;border-radius:12px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere}
+.bubble.user{align-self:end;background:light-dark(#dceafe,#25476e)}
+.bubble.assistant{align-self:start;background:light-dark(#e7edf2,#2b3c4e)}
+.bubble.meta{align-self:center;color:light-dark(#516477,#b1bdc7);font-size:.85rem;background:transparent}
+#status{min-height:1.5em}#progress{width:100%;height:10px}#compose{display:flex;gap:10px;align-items:stretch}#question{flex:1;min-height:64px}
+#send{min-width:110px}.stats{display:flex;flex-wrap:wrap;gap:18px;font-size:.9rem}
+details{margin-top:10px}pre{overflow:auto;white-space:pre-wrap;font-size:.8rem}
+@media(max-width:560px){#compose{flex-direction:column}#send{width:100%}}
+</style></head>
+<body>
+<header><h1>DiagCore Chat Lab : conversations locales</h1>
+<p class="help">Laboratoire indépendant. Aucun changement à DiagCore V1.3 ni aux cours. Les modèles fonctionnent sur votre appareil : pas d'API d'IA facturée et aucune question envoyée à un service de dialogue.</p></header>
+<section class="panel">
+<h2>1. Choisir et charger un modèle</h2>
+<div class="toolbar">
+ <div class="field"><label for="engine">Moteur</label><select id="engine">
+ <option value="transformers">Transformers.js - Qwen3 0,6B (WebGPU)</option>
+ <option value="webllm">WebLLM - Qwen2 0,5B (WebGPU)</option>
+ </select></div>
+ <button id="load">Charger le modèle</button>
+ <button id="reset" class="secondary">Recommencer la conversation</button>
+</div>
+<p class="help">Premier chargement : téléchargement potentiellement volumineux depuis les dépôts publics du modèle. Un navigateur compatible WebGPU et suffisamment de mémoire sont nécessaires. Le téléchargement ne doit pas être interrompu par un changement de page. La mise en cache dépend du navigateur. Le modèle peut rester lent sur smartphone.</p>
+<div role="status" aria-live="polite" id="status">Vérification de WebGPU en cours...</div><progress id="progress" max="1" value="0" hidden></progress>
+</section>
+<section class="panel">
+<h2>2. Dialoguer avec Camille</h2>
+<div id="messages" role="log" aria-live="polite" aria-label="Conversation"></div>
+<div id="compose"><textarea id="question" placeholder="Posez une question comme un élève technicien... (Entrée pour envoyer, Maj+Entrée pour une nouvelle ligne)" disabled></textarea><button id="send" disabled>Envoyer</button></div>
+<div class="stats"><span id="turns">Messages : 0</span><span id="timing">Dernière réponse : -</span><span id="device"></span></div>
+</section>
+<section class="panel">
+<h2>3. Recette et traçabilité</h2>
+<p class="help">Évaluez chaque réponse avant de conclure. Une formulation naturelle mais factuellement fausse est une erreur, même si elle semble crédible.</p>
+<div class="toolbar">
+ <button id="valid" class="secondary" disabled>Réponse correcte</button>
+ <button id="invalid" class="secondary" disabled>Réponse incorrecte</button>
+ <button id="unclear" class="secondary" disabled>Réponse à préciser</button>
+ <button id="export" class="secondary">Exporter le rapport JSON</button>
+</div>
+<div id="scores" class="help">Aucune réponse évaluée.</div>
+<details><summary>Faits autorisés du scénario (à ne pas montrer aux élèves)</summary>
+<pre id="facts"></pre></details>
+<details><summary>Limites et protocole</summary>
+<p class="help">Les deux moteurs sont évalués avec la même fiche de faits et la même consigne. Les réglages et les versions diffèrent selon les moteurs ; ce prototype est destiné à vérifier la faisabilité, pas à proclamer un gagnant. Tests à réaliser avec des dialogues entièrement inédits, fautes de frappe, questions courtes, questions composites, durée de réponse, appareil et exactitude des faits.</p>
+<p class="help">Le moteur peut inventer ou divulguer des éléments du scénario même si les consignes le lui interdisent. Le contrôle de cohérence devra être renforcé avant tout usage pédagogique.</p></details>
+</section>
+<script type="module" src="./app.js"></script></body></html>
