@@ -79,3 +79,20 @@ Le [workflow NLP.js - Phase 2](.github/workflows/nlp-phase2.yml) compare quatre 
 - Si une configuration est choisie en fonction de ces 40 questions, une nouvelle évaluation totalement inédite sera indispensable.
 
 Le fichier `results/nlp-phase2.csv` est exporté comme artefact GitHub Actions, avec chaque prédiction. Un workflow vert garantit seulement l'exécution technique : **consulter les chiffres et les erreurs** avant toute conclusion.
+
+### Résultats effectivement mesurés
+
+[GitHub Actions, exécution n° 43442142577](https://github.com/chaoli22000bzh/diagcore-chat-lab/actions/runs/43442142577), workflow réussi, quatre configurations exécutées sans erreur d'évaluation.
+
+| Configuration | Validation 40 : correctes / erreurs / refus valides | Historique 100 : correctes / erreurs / refus valides |
+|---|---|---|
+| NLP.js initial | 23 / 3 / 14 | 51 / 15 / 34 |
+| NLP.js initial prudent | 21 / 2 / 17 | 45 / 4 / 51 |
+| NLP.js + ajouts automatiques | 22 / 12 / 6 | 51 / 29 / 20 |
+| NLP.js + ajouts automatiques prudent | 21 / 7 / 12 | 50 / 17 / 33 |
+
+Attention : « correctes » comprend les rejets corrects des questions hors sujet ; « erreurs » comprend les mauvaises intentions annoncées ; « refus valides » concerne les questions qui méritaient une intention mais ont été rejetées.
+
+**Décision technique :** rejeter l'ajout mécanique de salutations comme stratégie d'entraînement. La version prudente limite fortement les mauvaises intentions, mais elle ne comprend pas assez de questions pour être proposée aux élèves. Aucune version n'est validée pour l'intégration à DiagCore.
+
+**Prochaine piste, à expérimenter séparément :** intentions précisément définies, exemples indépendants couvrant plusieurs formulations réelles, distinction questions multiples / ambiguïtés / négations, puis reconnaissance contextuelle. Il faudra une nouvelle validation avant toute conclusion.
