@@ -1,0 +1,602 @@
+[
+  {
+    "id": "error_message-01",
+    "question": "Ça vous met quoi comme erreur ?",
+    "expected": "error_message",
+    "category": "courante"
+  },
+  {
+    "id": "error_message-02",
+    "question": "Il vous écrit quoi quand vous cliquez dessus ?",
+    "expected": "error_message",
+    "category": "variante"
+  },
+  {
+    "id": "error_message-03",
+    "question": "Vous avez un méssage d erreure ?",
+    "expected": "error_message",
+    "category": "orthographe"
+  },
+  {
+    "id": "error_message-04",
+    "question": "Ça marque accès refusé ou introuvable ?",
+    "expected": "error_message",
+    "category": "contexte"
+  },
+  {
+    "id": "error_message-05",
+    "question": "Est-ce qu’une fenêtre rouge s’affiche ?",
+    "expected": "error_message",
+    "category": "courante"
+  },
+  {
+    "id": "error_message-06",
+    "question": "Ça dit quoi exactement le PC ?",
+    "expected": "error_message",
+    "category": "variante"
+  },
+  {
+    "id": "error_message-07",
+    "question": "Quel message est indiqué à l’écran ?",
+    "expected": "error_message",
+    "category": "orthographe"
+  },
+  {
+    "id": "error_message-08",
+    "question": "Sa affiche koi kom erreur ?",
+    "expected": "error_message",
+    "category": "contexte"
+  },
+  {
+    "id": "internet_access-01",
+    "question": "Internet ça marche chez vous ?",
+    "expected": "internet_access",
+    "category": "courante"
+  },
+  {
+    "id": "internet_access-02",
+    "question": "Vous arrivez à aller sur un site ?",
+    "expected": "internet_access",
+    "category": "variante"
+  },
+  {
+    "id": "internet_access-03",
+    "question": "La navigation fonctionne en dehors du dossier ?",
+    "expected": "internet_access",
+    "category": "orthographe"
+  },
+  {
+    "id": "internet_access-04",
+    "question": "Vous pouvé ouvrir google ?",
+    "expected": "internet_access",
+    "category": "contexte"
+  },
+  {
+    "id": "internet_access-05",
+    "question": "Est-ce que le navigateur affiche des pages ?",
+    "expected": "internet_access",
+    "category": "courante"
+  },
+  {
+    "id": "internet_access-06",
+    "question": "Vous avez le web ou rien du tout ?",
+    "expected": "internet_access",
+    "category": "variante"
+  },
+  {
+    "id": "internet_access-07",
+    "question": "Vous pouvez consulter le site de votre banque ?",
+    "expected": "internet_access",
+    "category": "orthographe"
+  },
+  {
+    "id": "internet_access-08",
+    "question": "Y a internet sur votre ordi ?",
+    "expected": "internet_access",
+    "category": "contexte"
+  },
+  {
+    "id": "other_users-01",
+    "question": "Et sur le PC des autres ça marche ?",
+    "expected": "other_users",
+    "category": "courante"
+  },
+  {
+    "id": "other_users-02",
+    "question": "D’autres gens sont bloqués ?",
+    "expected": "other_users",
+    "category": "variante"
+  },
+  {
+    "id": "other_users-03",
+    "question": "Vos collegues arrive a ouvrir ?",
+    "expected": "other_users",
+    "category": "orthographe"
+  },
+  {
+    "id": "other_users-04",
+    "question": "Ça touche tout le bureau ou juste vous ?",
+    "expected": "other_users",
+    "category": "contexte"
+  },
+  {
+    "id": "other_users-05",
+    "question": "Même souci pour votre voisin ?",
+    "expected": "other_users",
+    "category": "courante"
+  },
+  {
+    "id": "other_users-06",
+    "question": "Les autres du service ont accès ?",
+    "expected": "other_users",
+    "category": "variante"
+  },
+  {
+    "id": "other_users-07",
+    "question": "Il n’y a que vous qui avez cette panne ?",
+    "expected": "other_users",
+    "category": "orthographe"
+  },
+  {
+    "id": "other_users-08",
+    "question": "Votre équipe peut accéder aux fichiers ?",
+    "expected": "other_users",
+    "category": "contexte"
+  },
+  {
+    "id": "since_when-01",
+    "question": "C’est depuis ce matin ?",
+    "expected": "since_when",
+    "category": "courante"
+  },
+  {
+    "id": "since_when-02",
+    "question": "Ça date de quand ?",
+    "expected": "since_when",
+    "category": "variante"
+  },
+  {
+    "id": "since_when-03",
+    "question": "Hier ça marchait encore ?",
+    "expected": "since_when",
+    "category": "orthographe"
+  },
+  {
+    "id": "since_when-04",
+    "question": "Depui combien de temp c cassé ?",
+    "expected": "since_when",
+    "category": "contexte"
+  },
+  {
+    "id": "since_when-05",
+    "question": "Ça a commencé après votre pause ?",
+    "expected": "since_when",
+    "category": "courante"
+  },
+  {
+    "id": "since_when-06",
+    "question": "Le problème est apparu à quelle heure ?",
+    "expected": "since_when",
+    "category": "variante"
+  },
+  {
+    "id": "since_when-07",
+    "question": "Est-ce que ça fonctionnait la semaine passée ?",
+    "expected": "since_when",
+    "category": "orthographe"
+  },
+  {
+    "id": "since_when-08",
+    "question": "Depuis quand vous n’avez plus accès ?",
+    "expected": "since_when",
+    "category": "contexte"
+  },
+  {
+    "id": "which_resource-01",
+    "question": "C’est quel dossier exactement ?",
+    "expected": "which_resource",
+    "category": "courante"
+  },
+  {
+    "id": "which_resource-02",
+    "question": "Vous essayez d’ouvrir quoi ?",
+    "expected": "which_resource",
+    "category": "variante"
+  },
+  {
+    "id": "which_resource-03",
+    "question": "Le partage s’appelle comment ?",
+    "expected": "which_resource",
+    "category": "orthographe"
+  },
+  {
+    "id": "which_resource-04",
+    "question": "Quel est le nom du lecteur qui bug ?",
+    "expected": "which_resource",
+    "category": "contexte"
+  },
+  {
+    "id": "which_resource-05",
+    "question": "C’est le dossier ventes ou direction ?",
+    "expected": "which_resource",
+    "category": "courante"
+  },
+  {
+    "id": "which_resource-06",
+    "question": "Tu peux me dire le chemin réseau ?",
+    "expected": "which_resource",
+    "category": "variante"
+  },
+  {
+    "id": "which_resource-07",
+    "question": "Quel répértoire ne souvre plu ?",
+    "expected": "which_resource",
+    "category": "orthographe"
+  },
+  {
+    "id": "which_resource-08",
+    "question": "C’est un fichier particulier ou tout le répertoire ?",
+    "expected": "which_resource",
+    "category": "contexte"
+  },
+  {
+    "id": "connection_type-01",
+    "question": "Vous êtes en wifi ou avec un fil ?",
+    "expected": "connection_type",
+    "category": "courante"
+  },
+  {
+    "id": "connection_type-02",
+    "question": "Il y a un câble branché derrière le PC ?",
+    "expected": "connection_type",
+    "category": "variante"
+  },
+  {
+    "id": "connection_type-03",
+    "question": "La wifi est activée ?",
+    "expected": "connection_type",
+    "category": "orthographe"
+  },
+  {
+    "id": "connection_type-04",
+    "question": "Vous utilisez une prise réseau ?",
+    "expected": "connection_type",
+    "category": "contexte"
+  },
+  {
+    "id": "connection_type-05",
+    "question": "Vous êtes connecter en ethernet ?",
+    "expected": "connection_type",
+    "category": "courante"
+  },
+  {
+    "id": "connection_type-06",
+    "question": "La connexion sans fil capte bien ?",
+    "expected": "connection_type",
+    "category": "variante"
+  },
+  {
+    "id": "connection_type-07",
+    "question": "Vous avez du réseau sur la prise murale ?",
+    "expected": "connection_type",
+    "category": "orthographe"
+  },
+  {
+    "id": "connection_type-08",
+    "question": "C’est du sans-fil ou du câble RJ45 ?",
+    "expected": "connection_type",
+    "category": "contexte"
+  },
+  {
+    "id": "location_remote-01",
+    "question": "Vous êtes chez vous ou au boulot ?",
+    "expected": "location_remote",
+    "category": "courante"
+  },
+  {
+    "id": "location_remote-02",
+    "question": "Le VPN est bien lancé ?",
+    "expected": "location_remote",
+    "category": "variante"
+  },
+  {
+    "id": "location_remote-03",
+    "question": "Vous travaillez depuis la maison ?",
+    "expected": "location_remote",
+    "category": "orthographe"
+  },
+  {
+    "id": "location_remote-04",
+    "question": "C’est au bureau que ça bloque ?",
+    "expected": "location_remote",
+    "category": "contexte"
+  },
+  {
+    "id": "location_remote-05",
+    "question": "Vous utilisez une connexion distante ?",
+    "expected": "location_remote",
+    "category": "courante"
+  },
+  {
+    "id": "location_remote-06",
+    "question": "T es en télétravail ?",
+    "expected": "location_remote",
+    "category": "variante"
+  },
+  {
+    "id": "location_remote-07",
+    "question": "Vous êtes dans l’entreprise actuellement ?",
+    "expected": "location_remote",
+    "category": "orthographe"
+  },
+  {
+    "id": "location_remote-08",
+    "question": "Il faut vous connecter au VPN ?",
+    "expected": "location_remote",
+    "category": "contexte"
+  },
+  {
+    "id": "account_permissions-01",
+    "question": "Vous utilisez quel identifiant ?",
+    "expected": "account_permissions",
+    "category": "courante"
+  },
+  {
+    "id": "account_permissions-02",
+    "question": "Votre compte a changé récemment ?",
+    "expected": "account_permissions",
+    "category": "variante"
+  },
+  {
+    "id": "account_permissions-03",
+    "question": "C’est votre session habituelle ?",
+    "expected": "account_permissions",
+    "category": "orthographe"
+  },
+  {
+    "id": "account_permissions-04",
+    "question": "Vous êtes bien autorisé sur ce partage ?",
+    "expected": "account_permissions",
+    "category": "contexte"
+  },
+  {
+    "id": "account_permissions-05",
+    "question": "Vous avez changé de mot de passe ?",
+    "expected": "account_permissions",
+    "category": "courante"
+  },
+  {
+    "id": "account_permissions-06",
+    "question": "Vous avez les droits pour ce dossier ?",
+    "expected": "account_permissions",
+    "category": "variante"
+  },
+  {
+    "id": "account_permissions-07",
+    "question": "Votre login pro fonctionne toujours ?",
+    "expected": "account_permissions",
+    "category": "orthographe"
+  },
+  {
+    "id": "account_permissions-08",
+    "question": "C est bien votre compte entreprise ?",
+    "expected": "account_permissions",
+    "category": "contexte"
+  },
+  {
+    "id": "other_resources-01",
+    "question": "Les autres dossiers s’ouvrent ?",
+    "expected": "other_resources",
+    "category": "courante"
+  },
+  {
+    "id": "other_resources-02",
+    "question": "Ça bloque aussi les autres partages ?",
+    "expected": "other_resources",
+    "category": "variante"
+  },
+  {
+    "id": "other_resources-03",
+    "question": "Vous avez accès au lecteur commun ?",
+    "expected": "other_resources",
+    "category": "orthographe"
+  },
+  {
+    "id": "other_resources-04",
+    "question": "Les autres lecteurs sont disponibles ?",
+    "expected": "other_resources",
+    "category": "contexte"
+  },
+  {
+    "id": "other_resources-05",
+    "question": "Seul ce dossier est en panne ?",
+    "expected": "other_resources",
+    "category": "courante"
+  },
+  {
+    "id": "other_resources-06",
+    "question": "Vous pouvez ouvrir un autre repertoire partagé ?",
+    "expected": "other_resources",
+    "category": "variante"
+  },
+  {
+    "id": "other_resources-07",
+    "question": "Tout le réseau est bloqué ou un dossier seulement ?",
+    "expected": "other_resources",
+    "category": "orthographe"
+  },
+  {
+    "id": "other_resources-08",
+    "question": "Les fichiers du service RH sont accessibles ?",
+    "expected": "other_resources",
+    "category": "contexte"
+  },
+  {
+    "id": "actions_already_tried-01",
+    "question": "Vous avez essayé quoi jusqu’ici ?",
+    "expected": "actions_already_tried",
+    "category": "courante"
+  },
+  {
+    "id": "actions_already_tried-02",
+    "question": "Vous avez redémarré le PC ?",
+    "expected": "actions_already_tried",
+    "category": "variante"
+  },
+  {
+    "id": "actions_already_tried-03",
+    "question": "Avez vous deja tenté une reconnexion ?",
+    "expected": "actions_already_tried",
+    "category": "orthographe"
+  },
+  {
+    "id": "actions_already_tried-04",
+    "question": "Est-ce que vous vous êtes déconnecté puis reconnecté ?",
+    "expected": "actions_already_tried",
+    "category": "contexte"
+  },
+  {
+    "id": "actions_already_tried-05",
+    "question": "Vous avez fait quelque chose avant mon appel ?",
+    "expected": "actions_already_tried",
+    "category": "courante"
+  },
+  {
+    "id": "actions_already_tried-06",
+    "question": "Quelqu’un a déjà tenté de réparer ?",
+    "expected": "actions_already_tried",
+    "category": "variante"
+  },
+  {
+    "id": "actions_already_tried-07",
+    "question": "Vous avez reboot la machine ?",
+    "expected": "actions_already_tried",
+    "category": "orthographe"
+  },
+  {
+    "id": "actions_already_tried-08",
+    "question": "Vous avez essayé de rouvrir votre session ?",
+    "expected": "actions_already_tried",
+    "category": "contexte"
+  },
+  {
+    "id": "rejet-01",
+    "question": "Quelle est la météo demain ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-02",
+    "question": "Tu as vu le match hier ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-03",
+    "question": "Il reste du café ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-04",
+    "question": "Vous aimez les chats ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-05",
+    "question": "Combien coûte une imprimante ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-06",
+    "question": "Quel est le menu de la cantine ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-07",
+    "question": "Donnez-moi la capitale du Pérou",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-08",
+    "question": "Peux-tu raconter une blague ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-09",
+    "question": "Quel est le prochain film au cinéma ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-10",
+    "question": "Tu sais dessiner un dragon ?",
+    "expected": "REJECT",
+    "category": "irrelevant"
+  },
+  {
+    "id": "rejet-11",
+    "question": "Ça marche ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-12",
+    "question": "Et les autres ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-13",
+    "question": "C’est bon ou pas ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-14",
+    "question": "Vous voyez quelque chose ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-15",
+    "question": "Ça vient du réseau ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-16",
+    "question": "C’est possible ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-17",
+    "question": "Vous l’avez fait ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-18",
+    "question": "Quel est le problème exactement ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-19",
+    "question": "Ça ne va toujours pas ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  },
+  {
+    "id": "rejet-20",
+    "question": "On fait quoi maintenant ?",
+    "expected": "REJECT",
+    "category": "ambiguous"
+  }
+]
