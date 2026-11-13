@@ -1,0 +1,62 @@
+{
+  "error_message": [
+    "Quand vous tentez l'ouverture, quel texte s'affiche ?",
+    "Vous recevez une notification d'erreur ?",
+    "Il y a une alerte Windows à l'écran ?",
+    "Vous pourriez me lire ce qui est écrit ?"
+  ],
+  "internet_access": [
+    "Si vous allez sur un site public, la page s'ouvre ?",
+    "Votre navigateur peut afficher des sites externes ?",
+    "Le web reste accessible depuis ce poste ?",
+    "La connexion à Internet fonctionne à côté ?"
+  ],
+  "other_users": [
+    "Le collègue d'à côté arrive à y entrer ?",
+    "D'autres personnes de votre équipe sont bloquées ?",
+    "Êtes-vous le seul à rencontrer cette difficulté ?",
+    "Les autres employés ont aussi cette panne ?"
+  ],
+  "since_when": [
+    "Vous avez remarqué la panne à partir de quelle heure ?",
+    "C'était opérationnel avant aujourd'hui ?",
+    "Le dysfonctionnement date de ce matin ?",
+    "Vous avez perdu l'accès il y a combien de temps ?"
+  ],
+  "which_resource": [
+    "Pouvez-vous préciser le nom du répertoire concerné ?",
+    "De quel dossier commun parlez-vous ?",
+    "Quelle ressource partagée voulez-vous consulter ?",
+    "Vous ouvrez quel lecteur de l'entreprise ?"
+  ],
+  "connection_type": [
+    "Votre réseau passe-t-il par une liaison sans fil ?",
+    "La prise réseau est raccordée au PC ?",
+    "Vous utilisez un cordon Ethernet ?",
+    "Le poste est connecté par wifi ?"
+  ],
+  "location_remote": [
+    "Vous êtes physiquement dans l'entreprise ?",
+    "L'ordinateur est-il à votre domicile ?",
+    "Vous passez par le VPN depuis l'extérieur ?",
+    "C'est depuis le bureau ou à distance ?"
+  ],
+  "account_permissions": [
+    "Votre compte utilisateur a-t-il changé ?",
+    "Avec quel identifiant êtes-vous authentifié ?",
+    "Vous disposez normalement des permissions sur le partage ?",
+    "Vos droits sur le répertoire ont-ils été modifiés ?"
+  ],
+  "other_resources": [
+    "Un autre répertoire partagé s'ouvre chez vous ?",
+    "Les autres lecteurs communs sont accessibles ?",
+    "C'est seulement ce dossier ou tous les partages ?",
+    "Vous arrivez à ouvrir une autre ressource réseau ?"
+  ],
+  "actions_already_tried": [
+    "Vous avez déjà relancé l'ordinateur ?",
+    "Qu'avez-vous tenté avant de m'appeler ?",
+    "Est-ce que vous avez fait une manipulation pour corriger ?",
+    "Avez-vous essayé de sortir puis revenir dans votre session ?"
+  ]
+}
