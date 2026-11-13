@@ -1,0 +1,82 @@
+{
+  "error_message": [
+    "Quel message d’erreur voyez-vous ?",
+    "Qu’est-ce que Windows affiche ?",
+    "Avez-vous un code erreur ?",
+    "Que dit la fenêtre quand vous ouvrez le dossier ?",
+    "Une alerte apparaît-elle à l’écran ?",
+    "Quel est le texte du message ?"
+  ],
+  "internet_access": [
+    "Pouvez-vous accéder à Internet ?",
+    "Les sites web fonctionnent-ils ?",
+    "Est-ce que Google s’ouvre ?",
+    "Arrivez-vous à naviguer sur le Web ?",
+    "Vous avez une connexion Internet ?",
+    "Pouvez-vous ouvrir une page web ?"
+  ],
+  "other_users": [
+    "Vos collègues ont-ils le même problème ?",
+    "Est-ce que quelqu’un d’autre est touché ?",
+    "Les autres utilisateurs accèdent-ils au partage ?",
+    "Ce problème concerne-t-il tout le service ?",
+    "Le dossier s’ouvre-t-il chez vos collègues ?",
+    "Suis-je le seul concerné ou toute l’équipe ?"
+  ],
+  "since_when": [
+    "Depuis quand le problème existe-t-il ?",
+    "Quand avez-vous constaté la panne ?",
+    "À quelle heure l’accès a-t-il cessé ?",
+    "Est-ce arrivé aujourd’hui ?",
+    "Cela fonctionnait-il hier ?",
+    "Depuis combien de temps êtes-vous bloqué ?"
+  ],
+  "which_resource": [
+    "Quel dossier essayez-vous d’ouvrir ?",
+    "Pouvez-vous me donner le nom du partage ?",
+    "De quelle ressource avez-vous besoin ?",
+    "Quel répertoire est inaccessible ?",
+    "Quel lecteur réseau ne fonctionne pas ?",
+    "Quel chemin de dossier utilisez-vous ?"
+  ],
+  "connection_type": [
+    "Êtes-vous connecté en Wi-Fi ou en Ethernet ?",
+    "Le câble réseau est-il branché ?",
+    "Utilisez-vous le Wi-Fi de l’entreprise ?",
+    "La connexion sans fil est-elle active ?",
+    "Votre poste est-il relié par un câble ?",
+    "Travaillez-vous sur le réseau filaire ?"
+  ],
+  "location_remote": [
+    "Travaillez-vous au bureau ou à domicile ?",
+    "Êtes-vous connecté par VPN ?",
+    "Vous êtes actuellement dans les locaux ?",
+    "Vous utilisez une connexion à distance ?",
+    "Avez-vous activé le VPN de l’entreprise ?",
+    "Êtes-vous en télétravail aujourd’hui ?"
+  ],
+  "account_permissions": [
+    "Avec quel compte êtes-vous connecté ?",
+    "Vos droits d’accès ont-ils changé ?",
+    "Utilisez-vous votre compte professionnel ?",
+    "Le mot de passe a-t-il été modifié récemment ?",
+    "Avez-vous les autorisations sur ce dossier ?",
+    "Êtes-vous connecté avec votre identifiant habituel ?"
+  ],
+  "other_resources": [
+    "Les autres dossiers partagés fonctionnent-ils ?",
+    "Pouvez-vous ouvrir un autre lecteur réseau ?",
+    "Les autres ressources de l’entreprise sont-elles accessibles ?",
+    "Le problème touche-t-il tous les partages ?",
+    "Arrivez-vous à consulter un autre dossier commun ?",
+    "Les autres lecteurs réseau apparaissent-ils ?"
+  ],
+  "actions_already_tried": [
+    "Qu’avez-vous déjà essayé pour résoudre le problème ?",
+    "Avez-vous redémarré votre ordinateur ?",
+    "Avez-vous fermé puis rouvert votre session ?",
+    "Quelles manipulations avez-vous effectuées ?",
+    "Avez-vous tenté de vous reconnecter ?",
+    "Avez-vous déjà contacté un collègue pour cette panne ?"
+  ]
+}
