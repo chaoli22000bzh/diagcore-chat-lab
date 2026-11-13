@@ -44,7 +44,13 @@ details{margin-top:10px}pre{overflow:auto;white-space:pre-wrap;font-size:.8rem}
 <div class="stats"><span id="turns">Messages : 0</span><span id="timing">Dernière réponse : -</span><span id="device"></span></div>
 </section>
 <section class="panel">
-<h2>3. Recette et traçabilité</h2>
+<h2>3. Audit technique des consignes</h2>
+<p class="help">Après chargement du modèle, quatre questions sont envoyées automatiquement, en dehors de la conversation avec Camille. Elles permettent de comparer une information isolée, une fiche structurée et la consigne actuelle. Le test ne modifie pas la conversation.</p>
+<button id="audit" class="secondary" disabled>Lancer l'audit de 4 consignes</button>
+<div id="audit-results" aria-live="polite" class="help">Audit non exécuté.</div>
+</section>
+<section class="panel">
+<h2>4. Recette et traçabilité</h2>
 <p class="help">Évaluez chaque réponse avant de conclure. Une formulation naturelle mais factuellement fausse est une erreur, même si elle semble crédible.</p>
 <div class="toolbar">
  <button id="valid" class="secondary" disabled>Réponse correcte</button>
