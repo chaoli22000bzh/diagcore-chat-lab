@@ -61,3 +61,21 @@ La présence d'une licence à la création du dépôt n'est pas requise pour uti
 - Les fichiers, données et scripts du banc ont été publiés sur `main`.
 - **Aucun classement n'est annoncé tant que l'exécution des trois bibliothèques n'a pas été constatée.**
 - Pas de simulation de bibliothèque, pas de réponse générée par IA, pas de modification de DiagCore ou des cours.
+
+
+## Phase 2 : NLP.js (13 novembre 2026)
+
+Le [workflow NLP.js - Phase 2](.github/workflows/nlp-phase2.yml) compare quatre configurations :
+1. modèle initial, score minimal 0,70 ;
+2. même modèle, seuil conservateur 0,85 et marge de 0,15 par rapport à l'intention suivante ;
+3. entraînement enrichi automatiquement avec trois formulations de politesse par phrase, score minimal 0,70 ;
+4. même enrichissement, seuil conservateur 0,85 et marge 0,15.
+
+**Limites méthodologiques importantes** :
+- Les 40 questions de [validation](data/validation-40.json), dont 10 rejets, sont distinctes des exemples d'entraînement.
+- Le corpus historique de 100 questions a déjà été examiné dans la phase 1. Il ne doit donc plus être présenté comme un test final totalement aveugle.
+- Les enrichissements ajoutent uniquement des débuts de phrase simples aux 60 phrases d'entraînement. Ils ne correspondent pas à 180 exemples indépendants supplémentaires.
+- L'ajout de contexte conversationnel n'est pas encore développé. Ce second test évalue la reconnaissance d'une question isolée.
+- Si une configuration est choisie en fonction de ces 40 questions, une nouvelle évaluation totalement inédite sera indispensable.
+
+Le fichier `results/nlp-phase2.csv` est exporté comme artefact GitHub Actions, avec chaque prédiction. Un workflow vert garantit seulement l'exécution technique : **consulter les chiffres et les erreurs** avant toute conclusion.
