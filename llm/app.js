@@ -5,7 +5,7 @@ const state={engine:null,model:null,history:[],attempts:[],busy:false,ready:fals
 $("facts").textContent=JSON.stringify(FACTS,null,2);
 const status=s=>$("status").textContent=s;
 function bubble(text,kind){const e=document.createElement("div");e.className="bubble "+kind;e.textContent=text;$("messages").append(e);$("messages").scrollTop=$("messages").scrollHeight;}
-function refresh(){const active=state.ready&&!state.busy;$("question").disabled=!active;$("send").disabled=!active;$("engine").disabled=state.ready||state.busy;$("load").disabled=state.ready||state.busy;$("reset").disabled=state.busy;for(const id of ["valid","invalid","unclear"])$(id).disabled=state.busy||state.last<0||Boolean(state.attempts[state.last]?.rating);$("turns").textContent="Questions : "+state.attempts.length;const scores=state.attempts.reduce((o,x)=>(x.rating&&(o[x.rating]=(o[x.rating]||0)+1),o),{correct:0,incorrect:0,unclear:0});$("scores").textContent=JSON.stringify(scores);}
+function refresh(){const active=state.ready&&!state.busy;$("question").disabled=!active;$("send").disabled=!active;$("engine").disabled=state.ready||state.busy;$("load").disabled=state.ready||state.busy;$("reset").disabled=state.busy;$("audit").disabled=!state.ready||state.busy;for(const id of ["valid","invalid","unclear"])$(id).disabled=state.busy||state.last<0||Boolean(state.attempts[state.last]?.rating);$("turns").textContent="Questions : "+state.attempts.length;const scores=state.attempts.reduce((o,x)=>(x.rating&&(o[x.rating]=(o[x.rating]||0)+1),o),{correct:0,incorrect:0,unclear:0});$("scores").textContent=JSON.stringify(scores);}
 function reset(){state.history=[];state.attempts=[];state.last=-1;$("messages").replaceChildren();bubble("Bonjour, je n'arrive plus à accéder au dossier partagé du service commercial.","assistant");$("timing").textContent="Dernière réponse : -";refresh();}
 async function load(){if(state.busy||state.ready)return;state.busy=true;refresh();try{
  if(!navigator.gpu)throw Error("WebGPU non disponible sur ce navigateur ou cet appareil.");
@@ -41,8 +41,52 @@ async function send(){const question=$("question").value.trim();if(!question||!s
  const ms=Math.round(performance.now()-t);state.history.push({role:"user",content:question},{role:"assistant",content:answer});state.attempts.push({question,answer,elapsedMs:ms,rating:null,engine:state.engine});state.last=state.attempts.length-1;bubble(answer,"assistant");$("timing").textContent="Dernière réponse : "+(ms/1000).toFixed(1)+" s";status("Réponse locale obtenue. Évaluez son exactitude.");
 }catch(e){bubble("Erreur technique : "+String(e.message||e),"meta");status("Erreur technique de génération.");}finally{state.busy=false;refresh();}}
 function rate(r){if(state.last>=0){state.attempts[state.last].rating=r;refresh();}}
-function download(){const report={prototype:"Chat Lab LLM",date:new Date().toISOString(),engine:state.engine,userAgent:navigator.userAgent,webgpu:Boolean(navigator.gpu),facts:FACTS,turns:state.attempts};const u=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=u;a.download="chat-lab-rapport.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
-$("load").addEventListener("click",load);$("send").addEventListener("click",send);$("reset").addEventListener("click",reset);$("export").addEventListener("click",download);
+
+const auditCases=[
+ {label:"A. Fait neutre isolé",system:"Tu réponds en français à une question uniquement à partir du fait fourni. FAIT : Le badge de Camille est vert. Si la réponse figure dans le fait, réponds directement en une phrase.",question:"De quelle couleur est le badge de Camille ?",expected:"vert"},
+ {label:"B. Internet isolé",system:"Tu joues Camille, employée. FAIT : Son accès Internet fonctionne normalement. Réponds brièvement en français à la question du technicien. Si le fait répond à la question, utilise-le.",question:"Est-ce que vous arrivez à accéder à Internet ?",expected:"oui, internet fonctionne"},
+ {label:"C. Fiche structurée",system:"Tu joues Camille au service commercial. Voici ses informations certaines :\n- Internet : oui, fonctionne normalement.\n- Dossier Commercial : accès refusé.\n- Collègues : accès au dossier possible.\nRéponds brièvement en français uniquement à la question posée et uniquement avec ces faits.",question:"Est-ce que vous arrivez à accéder à Internet ?",expected:"oui, internet fonctionne"},
+ {label:"D. Consigne actuelle",system,question:"Est-ce que vous arrivez à accéder à Internet ?",expected:"oui, internet fonctionne"}
+];
+function cleanThink(raw){
+ let answer=String(raw||"").trim();
+ if(/<think>/i.test(answer)){
+  if(/<\/think>/i.test(answer))answer=answer.replace(/<think>[\s\S]*?<\/think>/gi,"").trim();
+  else answer="[Raisonnement interne généré sans réponse finale]";
+ }
+ return answer;
+}
+async function generateWith(messages){
+ if(state.engine==="transformers"){
+  const out=await state.model(messages,{max_new_tokens:110,do_sample:false});
+  return getText(out);
+ }
+ const out=await state.model.chat.completions.create({messages,temperature:0,max_tokens:110});
+ return String(out.choices?.[0]?.message?.content||"");
+}
+async function audit(){
+ if(!state.ready||state.busy)return;
+ state.busy=true;refresh();const display=$("audit-results");display.replaceChildren();
+ const rows=[];status("Audit en cours : 4 générations indépendantes...");
+ try{
+  for(let i=0;i<auditCases.length;i++){
+   const c=auditCases[i];status("Audit : "+(i+1)+"/"+auditCases.length+" - "+c.label);
+   const messages=[{role:"system",content:c.system},{role:"user",content:c.question+(state.engine==="transformers"?"\n/no_think":"")}];
+   const t=performance.now();let raw,err=null;
+   try{raw=await generateWith(messages);}catch(e){err=String(e.message||e);raw="";}
+   const ms=Math.round(performance.now()-t);
+   rows.push({case:c.label,question:c.question,expected:c.expected,answer:cleanThink(raw),raw,ms,error:err});
+   const para=document.createElement("p");
+   para.textContent=c.label+" - "+(ms/1000).toFixed(1)+" s - "+(err?"Erreur : "+err:cleanThink(raw)||"[Aucune réponse]");
+   display.append(para);
+  }
+  state.audit=rows;
+  status("Audit terminé. Les réponses sont visibles et incluses dans le rapport exporté.");
+ }finally{state.busy=false;refresh();}
+}
+
+function download(){const report={prototype:"Chat Lab LLM",date:new Date().toISOString(),engine:state.engine,userAgent:navigator.userAgent,webgpu:Boolean(navigator.gpu),facts:FACTS,audit:state.audit||[],turns:state.attempts};const u=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=u;a.download="chat-lab-rapport.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
+$("audit").addEventListener("click",audit);$("load").addEventListener("click",load);$("send").addEventListener("click",send);$("reset").addEventListener("click",reset);$("export").addEventListener("click",download);
 $("valid").addEventListener("click",()=>rate("correct"));$("invalid").addEventListener("click",()=>rate("incorrect"));$("unclear").addEventListener("click",()=>rate("unclear"));
 $("question").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send();}});
 reset();status(navigator.gpu?"WebGPU détecté. Vous pouvez charger un modèle.":"WebGPU non détecté. Cet appareil ne peut pas exécuter le laboratoire.");
