@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>DiagCore Chat Lab - Essai DHCP</title>
+<link rel="stylesheet" href="./style.css">
+</head><body>
+<main class="shell">
+<header class="app-header">
+ <div><a href="../llm/" class="back">← Laboratoire</a><h1>Diagnostic DHCP <span>· essai de présentation chat</span></h1></div>
+ <button id="restart" class="secondary" type="button">Recommencer</button>
+</header>
+<div class="layout">
+ <section class="conversation" aria-label="Conversation et résultats du diagnostic">
+  <div class="contact"><span class="avatar">SM</span><div><strong>Sophie Martin</strong><small>Site de Rennes · Incident réseau</small></div></div>
+  <div class="messages" id="messages" aria-live="polite" role="log"></div>
+  <div class="composer">
+    <div class="composer-heading"><strong id="selection-title">Choisir une action</strong><span class="hint">Les messages sont préparés : aucune saisie libre ni IA</span></div>
+    <div id="categories" class="categories" aria-label="Catégories de vérification"></div>
+    <div id="choices" class="choices" aria-label="Messages et actions disponibles"></div>
+    <div class="sendline"><p id="selected-preview" aria-live="polite">Sélectionne une proposition.</p><button id="send" type="button" disabled>Envoyer</button></div>
+    <p id="status" class="status" role="status"></p>
+  </div>
+ </section>
+ <aside class="sidebar">
+  <h2>Un scénario existant, deux présentations</h2>
+  <p>Cette page utilise le <strong>vrai moteur DiagCore V1.3</strong> avec une copie inchangée du scénario DHCP du chapitre 8.</p>
+  <p>Le diagnostic, les vérifications et les conditions de résolution restent ceux de l'exercice original.</p>
+  <p><strong>À noter :</strong> Sophie signale l'incident par message. Les résultats d'outils comme <code>ipconfig</code> ou du switch apparaissent comme des comptes rendus techniques, et non comme des réponses inventées de Sophie.</p>
+  <a href="https://chaoli22000bzh.github.io/portails-pedagogiques/ressources/dhcp/diagnostic-test.html" target="_blank" rel="noopener noreferrer">Voir l'ancien prototype vertical</a>
+  <p class="small">Source : <a href="https://github.com/chaoli22000bzh/portails-pedagogiques/blob/main/ressources/dhcp/scenario-diagnostic.js" target="_blank" rel="noopener noreferrer">scénario DHCP</a>.</p>
+  <div id="count" class="count" aria-live="polite">0 vérification réalisée</div>
+ </aside>
+</div>
+<section id="engine-host" class="engine-host" aria-hidden="true"></section>
+</main>
+<script src="https://chaoli22000bzh.github.io/diagcore/v1.3/diagcore.js"></script>
+<script src="./scenario-diagnostic.js"></script>
+<script type="module" src="./app.js"></script>
+</body></html>
