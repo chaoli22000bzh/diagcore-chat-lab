@@ -25,7 +25,7 @@ let asked=new Set(),selected=null,rounds=0,finished=false;
 const nextIds=["scope","when","symptoms","others","location","changed","reboot","internet","message","technical","availability","relay"];
 function write(role,message){
  const e=document.createElement("div");e.className="bubble "+role;
- const who=document.createElement("span");who.className="name";who.textContent=role==="sophie"?"Sophie Martin":"Technicien";
+ const who=document.createElement("span");who.className="name";who.textContent=role==="sophie"?"Sophie Martin":"Moi";
  const txt=document.createElement("p");txt.className="message";txt.textContent=message;
  e.append(who,txt);$("conversation").append(e);
  requestAnimationFrame(()=>{$("conversation").scrollTop=$("conversation").scrollHeight;});
