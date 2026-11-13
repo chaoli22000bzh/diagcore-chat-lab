@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 const engineRoot=$("engine-host");
 const scenario=window.DHCP_DIAGNOSTIC_SCENARIO;
 let app=null,choice=null,oldEntries=0,chosenCategory=null;
-const sourceImages="https://chaoli22000bzh.github.io/portails-pedagogiques/ressources/dhcp/";
+const sourceImages="https://raw.githubusercontent.com/chaoli22000bzh/portails-pedagogiques/main/ressources/dhcp/";
 function say(who,text,role){
  const e=document.createElement("div");e.className="msg "+role;
  const name=document.createElement("span");name.className="who";name.textContent=who;
