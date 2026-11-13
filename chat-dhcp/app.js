@@ -56,8 +56,17 @@ function controls(){
      b.addEventListener("click",()=>{group.click();controls();});
      categories.append(b);
    });
-   $("choices").replaceChildren();
-   $("selected-preview").textContent="Choisis d'abord un équipement.";
+   // Dès que deux contrôles sont réalisés, DiagCore peut proposer « Mon diagnostic »
+   // même depuis la vue des quatre équipements.
+   const host=$("choices");host.replaceChildren();
+   const specials=getChoices();
+   specials.forEach((item,index)=>{
+     const b=document.createElement("button");b.type="button";b.dataset.index=String(index);b.textContent=item.textContent;
+     b.disabled=item.disabled;
+     b.addEventListener("click",()=>{choice=item;$("selected-preview").textContent=item.textContent;$("send").disabled=false;[...host.children].forEach(x=>x.classList.toggle("chosen",x===b));});
+     host.append(b);
+   });
+   $("selected-preview").textContent=specials.length?"Choisis un équipement ou formule ton diagnostic.":"Choisis d'abord un équipement.";
    $("status").textContent="Les vérifications restent disponibles, même après utilisation.";
  }else{
    const back=next.querySelector(".diagcore__equipment-back");
