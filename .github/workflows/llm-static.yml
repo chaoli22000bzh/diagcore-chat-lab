@@ -1,0 +1,26 @@
+name: Laboratoire LLM - Contrôle statique
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'llm/**'
+      - '.github/workflows/llm-static.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Vérifier syntaxe JavaScript
+        run: node --check llm/app.js
+      - name: Vérifier présence interface
+        run: |
+          test -s llm/index.html
+          test -s llm/app.js
+          grep -q 'id="messages"' llm/index.html
+          grep -q 'id="question"' llm/index.html
