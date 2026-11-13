@@ -1,0 +1,242 @@
+[
+  {
+    "id": "dev-01-error_message",
+    "question": "Quel texte apparaît dans la fenêtre ?",
+    "expected": "error_message",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-error_message",
+    "question": "Le PC montre une alerte quand on ouvre le dossier ?",
+    "expected": "error_message",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-error_message",
+    "question": "Vous auriez le code de l'erreur ?",
+    "expected": "error_message",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-internet_access",
+    "question": "Les pages web chargent normalement ?",
+    "expected": "internet_access",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-internet_access",
+    "question": "Vous arrivez à consulter un site d'actualité ?",
+    "expected": "internet_access",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-internet_access",
+    "question": "Si vous ouvrez un navigateur, ça fonctionne ?",
+    "expected": "internet_access",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-other_users",
+    "question": "Un autre employé a essayé ?",
+    "expected": "other_users",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-other_users",
+    "question": "Votre voisin de bureau rencontre le même souci ?",
+    "expected": "other_users",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-other_users",
+    "question": "C'est pareil chez toute l'équipe ?",
+    "expected": "other_users",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-since_when",
+    "question": "C'était déjà en panne ce matin ?",
+    "expected": "since_when",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-since_when",
+    "question": "Ça a commencé à quel moment ?",
+    "expected": "since_when",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-since_when",
+    "question": "La dernière fois que ça a fonctionné c'était quand ?",
+    "expected": "since_when",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-which_resource",
+    "question": "Il s'appelle comment ce dossier ?",
+    "expected": "which_resource",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-which_resource",
+    "question": "C'est quel partage exactement ?",
+    "expected": "which_resource",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-which_resource",
+    "question": "Quelle lettre de lecteur est touchée ?",
+    "expected": "which_resource",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-connection_type",
+    "question": "Vous passez par le wifi ou par un câble ?",
+    "expected": "connection_type",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-connection_type",
+    "question": "L'ordinateur utilise le réseau sans fil ?",
+    "expected": "connection_type",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-connection_type",
+    "question": "Un fil réseau est raccordé au poste ?",
+    "expected": "connection_type",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-location_remote",
+    "question": "Vous êtes sur place ou chez vous ?",
+    "expected": "location_remote",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-location_remote",
+    "question": "Vous travaillez en dehors des locaux ?",
+    "expected": "location_remote",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-location_remote",
+    "question": "Le tunnel VPN est actif ?",
+    "expected": "location_remote",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-account_permissions",
+    "question": "C'est bien votre session habituelle ?",
+    "expected": "account_permissions",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-account_permissions",
+    "question": "Vos autorisations ont changé ?",
+    "expected": "account_permissions",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-account_permissions",
+    "question": "Quel identifiant utilisez-vous pour vous connecter ?",
+    "expected": "account_permissions",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-other_resources",
+    "question": "Un autre répertoire réseau est accessible ?",
+    "expected": "other_resources",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-other_resources",
+    "question": "Les autres lecteurs partagés marchent ?",
+    "expected": "other_resources",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-other_resources",
+    "question": "Ça bloque sur tous les espaces communs ?",
+    "expected": "other_resources",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-actions_already_tried",
+    "question": "Vous avez essayé de redémarrer le poste ?",
+    "expected": "actions_already_tried",
+    "category": "intention"
+  },
+  {
+    "id": "dev-02-actions_already_tried",
+    "question": "Qu'avez-vous fait pour résoudre ça ?",
+    "expected": "actions_already_tried",
+    "category": "intention"
+  },
+  {
+    "id": "dev-03-actions_already_tried",
+    "question": "Vous avez déjà demandé à quelqu'un de vous aider ?",
+    "expected": "actions_already_tried",
+    "category": "intention"
+  },
+  {
+    "id": "dev-01-REJECT",
+    "question": "Bonjour, je suis le nouveau stagiaire.",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-02-REJECT",
+    "question": "Quelle est la météo à Rennes ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-03-REJECT",
+    "question": "J'ai oublié mon badge aujourd'hui.",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-04-REJECT",
+    "question": "Pouvez-vous me donner le mot de passe du directeur ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-05-REJECT",
+    "question": "C'est bon, on peut fermer le ticket ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-06-REJECT",
+    "question": "Vous ne devriez pas ouvrir ce fichier.",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-07-REJECT",
+    "question": "Ce n'est pas votre ordinateur ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-08-REJECT",
+    "question": "Il est bleu ou gris ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-09-REJECT",
+    "question": "Est-ce que c'est lent ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "dev-10-REJECT",
+    "question": "Vous avez Internet et le dossier en même temps ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  }
+]
