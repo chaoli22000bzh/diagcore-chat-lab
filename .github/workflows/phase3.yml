@@ -1,0 +1,32 @@
+name: NLP.js - Phase 3 hybride
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/hybrid-engine.mjs'
+      - 'scripts/phase3.mjs'
+      - 'data/phase3-exemples-additionnels.json'
+      - '.github/workflows/phase3.yml'
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Installer les bibliotheques
+        run: npm install --no-audit --no-fund
+      - name: Evaluer le prototype hybride
+        run: node scripts/phase3.mjs
+      - name: Exporter les predictions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-phase3-hybride
+          path: results/phase3.*
+          if-no-files-found: warn
