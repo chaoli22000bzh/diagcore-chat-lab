@@ -142,3 +142,24 @@ Le workflow [Contrôle statique LLM](.github/workflows/llm-static.yml) vérifie 
 **Critères de décision :** qualité réelle d'une conversation, erreurs factuelles, informations inventées, durée du premier chargement, durée des réponses, capacité sur PC et téléphone. Aucun modèle n'est déclaré gagnant à ce stade.
 
 Ce laboratoire ne remplace pas DiagCore V1.3, ne modifie aucun cours et n'est pas encore destiné aux élèves.
+
+
+## Essai de présentation conversationnelle du diagnostic DHCP
+
+**Une seule expérimentation, sans modification des cours :** [chat-dhcp/index.html](chat-dhcp/index.html).
+
+Accès prévu après publication GitHub Pages : https://chaoli22000bzh.github.io/diagcore-chat-lab/chat-dhcp/
+
+La page exploite la **copie exacte** du scénario [DHCP, chapitre 8](https://github.com/chaoli22000bzh/portails-pedagogiques/blob/main/ressources/dhcp/scenario-diagnostic.js), conservée dans [chat-dhcp/scenario-diagnostic.js](chat-dhcp/scenario-diagnostic.js). Elle charge **DiagCore V1.3 officiel** et transmet les choix sélectionnés au moteur d'origine, en affichant ensuite ses observations dans des bulles.
+
+- **Sophie Martin** envoie le message initial : plusieurs PC du VLAN 30 n'accèdent pas au réseau, VLAN 10 fonctionnel.
+- Le technicien choisit **PC, Câblage, Switch ou Serveur DHCP**, puis une vérification. La sélection et l'envoi apparaissent dans le fil de discussion.
+- Les sorties d'outil et observations restent **des comptes rendus techniques** : elles ne sont pas attribuées artificiellement à Sophie.
+- Les 14 vérifications, les hypothèses, la correction et la vérification finale restent celles du scénario original.
+- Aucun NLP, aucun modèle à charger, aucune installation ni droit administrateur.
+
+Le workflow [Chat DHCP - Contrôle indépendant](.github/workflows/chat-dhcp.yml) vérifie automatiquement la présence des étapes et l'appel à DiagCore. **Il ne remplace pas un test fonctionnel dans le navigateur**, à effectuer avant toute décision d'intégration.
+
+**Limite pédagogique volontaire :** l'exercice DHCP d'origine décrit essentiellement des contrôles techniques, pas des questions adressées à Sophie. Cette page mesure donc la **présentation conversationnelle de DiagCore**, mais ne prétend pas encore simuler un véritable dialogue client-technicien avec réponses supplémentaires de Sophie. Il faudra décider si cette distinction est pertinente après l'essai.
+
+Les sources de `portails-pedagogiques`, de `diagcore` et des autres cours n'ont pas été modifiées.
