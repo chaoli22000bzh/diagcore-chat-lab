@@ -1,0 +1,242 @@
+[
+  {
+    "id": "blind-01",
+    "question": "Vous pouvez recopier l'avertissement qui apparaît ?",
+    "expected": "error_message",
+    "category": "intention"
+  },
+  {
+    "id": "blind-02",
+    "question": "Il y a une notification à l'écran au moment du clic ?",
+    "expected": "error_message",
+    "category": "intention"
+  },
+  {
+    "id": "blind-03",
+    "question": "L'application donne un numéro d'erreur ?",
+    "expected": "error_message",
+    "category": "intention"
+  },
+  {
+    "id": "blind-04",
+    "question": "Quand vous visitez un site extérieur, est-ce accessible ?",
+    "expected": "internet_access",
+    "category": "intention"
+  },
+  {
+    "id": "blind-05",
+    "question": "Votre navigateur affiche encore Google ?",
+    "expected": "internet_access",
+    "category": "intention"
+  },
+  {
+    "id": "blind-06",
+    "question": "Les pages Internet se chargent-elles ?",
+    "expected": "internet_access",
+    "category": "intention"
+  },
+  {
+    "id": "blind-07",
+    "question": "Les personnes à côté ont ce blocage aussi ?",
+    "expected": "other_users",
+    "category": "intention"
+  },
+  {
+    "id": "blind-08",
+    "question": "C'est uniquement vous dans l'équipe ?",
+    "expected": "other_users",
+    "category": "intention"
+  },
+  {
+    "id": "blind-09",
+    "question": "Vos collègues réussissent de leur côté ?",
+    "expected": "other_users",
+    "category": "intention"
+  },
+  {
+    "id": "blind-10",
+    "question": "La panne a commencé avant midi ?",
+    "expected": "since_when",
+    "category": "intention"
+  },
+  {
+    "id": "blind-11",
+    "question": "À quel moment précis avez-vous perdu l'accès ?",
+    "expected": "since_when",
+    "category": "intention"
+  },
+  {
+    "id": "blind-12",
+    "question": "Hier ça fonctionnait toujours ?",
+    "expected": "since_when",
+    "category": "intention"
+  },
+  {
+    "id": "blind-13",
+    "question": "C'est quoi le nom du répertoire que vous utilisez ?",
+    "expected": "which_resource",
+    "category": "intention"
+  },
+  {
+    "id": "blind-14",
+    "question": "Vous parlez de quel lecteur partagé ?",
+    "expected": "which_resource",
+    "category": "intention"
+  },
+  {
+    "id": "blind-15",
+    "question": "Quel est le chemin du dossier concerné ?",
+    "expected": "which_resource",
+    "category": "intention"
+  },
+  {
+    "id": "blind-16",
+    "question": "Vous êtes raccordé en Ethernet ?",
+    "expected": "connection_type",
+    "category": "intention"
+  },
+  {
+    "id": "blind-17",
+    "question": "Le wifi est activé sur ce portable ?",
+    "expected": "connection_type",
+    "category": "intention"
+  },
+  {
+    "id": "blind-18",
+    "question": "C'est une connexion sans fil ou un câble ?",
+    "expected": "connection_type",
+    "category": "intention"
+  },
+  {
+    "id": "blind-19",
+    "question": "La panne arrive depuis votre domicile ?",
+    "expected": "location_remote",
+    "category": "intention"
+  },
+  {
+    "id": "blind-20",
+    "question": "Vous êtes en télétravail actuellement ?",
+    "expected": "location_remote",
+    "category": "intention"
+  },
+  {
+    "id": "blind-21",
+    "question": "Vous êtes dans les locaux de la société ?",
+    "expected": "location_remote",
+    "category": "intention"
+  },
+  {
+    "id": "blind-22",
+    "question": "Votre compte professionnel est bien celui utilisé ?",
+    "expected": "account_permissions",
+    "category": "intention"
+  },
+  {
+    "id": "blind-23",
+    "question": "Avez-vous l'autorisation de consulter ces fichiers ?",
+    "expected": "account_permissions",
+    "category": "intention"
+  },
+  {
+    "id": "blind-24",
+    "question": "Les permissions du partage ont été modifiées ?",
+    "expected": "account_permissions",
+    "category": "intention"
+  },
+  {
+    "id": "blind-25",
+    "question": "Les autres ressources partagées restent accessibles ?",
+    "expected": "other_resources",
+    "category": "intention"
+  },
+  {
+    "id": "blind-26",
+    "question": "Vous réussissez à atteindre un second dossier commun ?",
+    "expected": "other_resources",
+    "category": "intention"
+  },
+  {
+    "id": "blind-27",
+    "question": "Les autres lecteurs réseau présentent le même souci ?",
+    "expected": "other_resources",
+    "category": "intention"
+  },
+  {
+    "id": "blind-28",
+    "question": "Vous avez tenté de redémarrer le PC ?",
+    "expected": "actions_already_tried",
+    "category": "intention"
+  },
+  {
+    "id": "blind-29",
+    "question": "Quelqu'un a déjà essayé de réparer cet incident ?",
+    "expected": "actions_already_tried",
+    "category": "intention"
+  },
+  {
+    "id": "blind-30",
+    "question": "Quelles manipulations avez-vous essayées ?",
+    "expected": "actions_already_tried",
+    "category": "intention"
+  },
+  {
+    "id": "blind-31",
+    "question": "Vous déjeunez à quelle heure ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-32",
+    "question": "Il y a combien d'élèves dans votre classe ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-33",
+    "question": "Votre patron est sympathique ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-34",
+    "question": "Une imprimante coûte combien ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-35",
+    "question": "Et ça ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-36",
+    "question": "Vous pensez que oui ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-37",
+    "question": "Internet et les permissions sont-ils corrects ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-38",
+    "question": "Les collègues ont-ils le même souci et quel message apparaît ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-39",
+    "question": "Votre session est ouverte et le VPN marche ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  },
+  {
+    "id": "blind-40",
+    "question": "Qu'est-ce qu'on doit faire maintenant ?",
+    "expected": "REJECT",
+    "category": "rejet"
+  }
+]
