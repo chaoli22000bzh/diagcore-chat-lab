@@ -73,7 +73,7 @@ function send(){
 }
 function restart(){
  asked=new Set();selected=null;rounds=0;finished=false;$("conversation").replaceChildren();
- write("sophie","Bonjour,\nDepuis ce matin, plusieurs PC du VLAN 30 n'ont plus accès au réseau. Les PC du VLAN 10 fonctionnent normalement. Pouvez-vous regarder ?\nMerci, Sophie.");
+ write("sophie","Bonjour,\nPlusieurs ordinateurs de notre site n'arrivent plus à accéder au réseau. Pouvez-vous regarder ?\nMerci, Sophie.");
  render();
 }
 $("restart").addEventListener("click",restart);$("send").addEventListener("click",send);restart();
