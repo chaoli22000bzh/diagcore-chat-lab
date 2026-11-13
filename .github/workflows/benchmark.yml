@@ -1,0 +1,32 @@
+name: Comparatif 100 questions
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'scripts/benchmark.mjs'
+      - 'data/**'
+      - '.github/workflows/benchmark.yml'
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Installation des bibliothèques officielles
+        run: npm install --no-audit --no-fund
+      - name: Exécuter les 300 interprétations
+        run: npm run benchmark
+      - name: Conserver le rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-diagcore-100-questions
+          path: results/
+          if-no-files-found: warn
