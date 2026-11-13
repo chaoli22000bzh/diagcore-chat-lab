@@ -21,7 +21,7 @@ function prepareMini(){if(typeof window.MiniSearch!=='function')throw Error('Min
 async function prepareNlp(){const [{containerBootstrap},{Nlp},{LangFr}]=await Promise.all([
  import('https://esm.sh/@nlpjs/core@5.0.0-alpha.5'),
  import('https://esm.sh/@nlpjs/nlp@5.0.0-alpha.5'),
- import('https://esm.sh/@nlpjs/lang-fr-min@5.0.0-alpha.5')]);
+ import('https://esm.sh/@nlpjs/lang-fr@5.0.0-alpha.5')]);
  const container=await containerBootstrap();container.use(Nlp);container.use(LangFr);const nlp=container.get('nlp');nlp.settings.autoSave=false;nlp.addLanguage('fr');for(const x of examples)nlp.addDocument('fr',x.phrase,x.intent);await nlp.train();return async question=>{const r=await nlp.process('fr',question);return r.score>=.7?r.intent:'REJECT';};}
 async function init(){const constructors=[[names[0],prepareFuse],[names[1],prepareMini],[names[2],prepareNlp]];const errors={};for(const [name,make] of constructors){try{engines[name]=await make();}catch(e){errors[name]=String(e.message||e);}}return errors;}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
