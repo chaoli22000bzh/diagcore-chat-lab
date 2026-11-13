@@ -1,5 +1,7 @@
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {performance} from 'node:perf_hooks';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
 const questions=JSON.parse(readFileSync(new URL('../data/questions-100.json',import.meta.url)));
 const train=JSON.parse(readFileSync(new URL('../data/entrainement-60.json',import.meta.url)));
 const examples=Object.entries(train).flatMap(([intent,phrases])=>phrases.map((phrase,i)=>({id:intent+'-'+i,intent,phrase})));
@@ -33,7 +35,9 @@ try{
  }});
 }catch(e){console.error('MiniSearch indisponible:',e);}
 try{
- const [{containerBootstrap},{Nlp},{LangFr}]=await Promise.all([import('@nlpjs/core'),import('@nlpjs/nlp'),import('@nlpjs/lang-fr')]);
+ const {containerBootstrap}=require('@nlpjs/core');
+ const {Nlp}=require('@nlpjs/nlp');
+ const {LangFr}=require('@nlpjs/lang-fr');
  const container=await containerBootstrap();container.use(Nlp);container.use(LangFr);
  const nlp=container.get('nlp');nlp.settings.autoSave=false;nlp.addLanguage('fr');
  for(const x of examples)nlp.addDocument('fr',x.phrase,x.intent);
