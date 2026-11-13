@@ -1,0 +1,23 @@
+name: Chat DHCP - Contrôle indépendant
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'chat-dhcp/**'
+      - 'scripts/check-chat-dhcp.mjs'
+      - '.github/workflows/chat-dhcp.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax
+        run: node --check chat-dhcp/app.js
+      - name: Scenario and engine adapter
+        run: node scripts/check-chat-dhcp.mjs
