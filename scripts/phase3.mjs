@@ -3,7 +3,7 @@ import {performance} from 'node:perf_hooks';
 import {createHybrid,interpret} from './hybrid-engine.mjs';
 const read=p=>JSON.parse(readFileSync(new URL(p,import.meta.url)));
 const base=read('../data/entrainement-60.json'),extra=read('../data/phase3-exemples-additionnels.json');
-const datasets=[['validation-40',read('../data/validation-40.json')],['historique-100',read('../data/questions-100.json')]];
+const datasets=[['validation-40',read('../data/validation-40.json')],['historique-100',read('../data/questions-100.json')],['controle-40-inédit',read('../data/phase3-controle-40.json')]];
 const model=await createHybrid(base,extra);
 const results=[];
 for(const [name,questions] of datasets){
