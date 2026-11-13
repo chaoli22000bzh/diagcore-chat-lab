@@ -96,3 +96,24 @@ Attention : « correctes » comprend les rejets corrects des questions hors suje
 **Décision technique :** rejeter l'ajout mécanique de salutations comme stratégie d'entraînement. La version prudente limite fortement les mauvaises intentions, mais elle ne comprend pas assez de questions pour être proposée aux élèves. Aucune version n'est validée pour l'intégration à DiagCore.
 
 **Prochaine piste, à expérimenter séparément :** intentions précisément définies, exemples indépendants couvrant plusieurs formulations réelles, distinction questions multiples / ambiguïtés / négations, puis reconnaissance contextuelle. Il faudra une nouvelle validation avant toute conclusion.
+
+
+## Phase 3 : interpréteur hybride expérimental
+
+Code : [scripts/hybrid-engine.mjs](scripts/hybrid-engine.mjs). La phase 3 utilise **NLP.js et des règles explicites de sécurité conversationnelle** pour refuser les formulations trop vagues, contenant plusieurs sujets ou contredisant la classification. Elle exploite un contexte limité, jamais une génération libre de réponse. Les 40 exemples ajoutés sont dans [data/phase3-exemples-additionnels.json](data/phase3-exemples-additionnels.json). Ce n'est ni un modèle de langage ni une solution prête pour la classe.
+
+Deux exécutions réelles :
+- [Premier essai](https://github.com/chaoli22000bzh/diagcore-chat-lab/actions/runs/43442918057)
+- [Contre-épreuve avec 40 questions inédites](https://github.com/chaoli22000bzh/diagcore-chat-lab/actions/runs/43443090079)
+
+| Jeu | Correctes | Mauvaises intentions | Questions valides refusées | Rejets corrects (inclus dans correctes) |
+|---|---:|---:|---:|---:|
+| Validation phase 2 (40, déjà connue) | 28 | 0 | 12 | 10 |
+| Historique (100, déjà connu) | 54 | 0 | 46 | 20 |
+| **Contrôle inédit phase 3 (40)** | **21** | **3** | **16** | **7** |
+
+Les 40 questions de contrôle ont été créées **après le prototype** et évaluées **sans modifier les règles ou le modèle**. Cette contre-épreuve est donc plus représentative que les scores obtenus sur les corpus déjà examinés. Elle met en évidence que l'absence d'erreurs sur les jeux connus ne se généralise pas : 3 mauvaises intentions sur 40 persistent.
+
+Les six tests ponctuels de contexte sont réussis, mais ils ne constituent pas une validation de conversations longues ni de phénomènes tels que les reprises pronominales, les négations multiples ou les questions composites.
+
+**Verdict : phase 3 expérimentale, non validée pour les élèves.** La bonne direction est un traitement prudent des ambiguïtés, mais 21/40 correctes sur des questions inédites reste insuffisant. Il ne faut ni changer les seuils sur ce lot ni annoncer de succès avant une nouvelle contre-épreuve indépendante. Aucun changement à DiagCore V1.3 ou aux cours.
