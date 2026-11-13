@@ -1,0 +1,18 @@
+import {readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const s=readFileSync('chat-dhcp/scenario-diagnostic.js','utf8');
+const html=readFileSync('chat-dhcp/index.html','utf8');
+const js=readFileSync('chat-dhcp/app.js','utf8');
+const checks=[...s.matchAll(/\{id:'([^']+)',label:/g)].map(x=>x[1]);
+const expected=['ip','renew','cable','replugpc','replugswitch','swapcable','swappatch','switchpower','switchport','switchvlan','relay','serverpower','server','scope'];
+assert.deepEqual(checks,expected,'Les 14 contrôles DHCP doivent être présents');
+assert.match(s,/minimumChecks:2/);
+assert.match(s,/requiredChecks:\['relay','server'\]/);
+assert.match(s,/relais DHCP \(IP Helper\) n’est pas configuré/);
+assert.match(s,/Le PC a reçu un bail DHCP\. Incident résolu\./);
+assert.match(html,/https:\/\/chaoli22000bzh\.github\.io\/diagcore\/v1\.3\/diagcore\.js/);
+for(const id of ['messages','choices','send','restart','engine-host'])assert.match(html,new RegExp('id="'+id+'"'));
+assert.match(js,/window\.DiagCore\.mount\(engineRoot,scenario,\{mode:"vertical"\}\)/,'Le prototype doit utiliser le vrai moteur');
+assert.match(js,/picked\.click\(\)/,'Les commandes doivent être transmises au vrai moteur');
+assert.match(js,/app\?\.getCompleted/,'L’état doit provenir du moteur');
+console.log('OK : 14 contrôles, règles DHCP et délégation à DiagCore 1.3.');
