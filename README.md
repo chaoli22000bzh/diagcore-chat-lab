@@ -117,3 +117,28 @@ Les 40 questions de contrôle ont été créées **après le prototype** et éva
 Les six tests ponctuels de contexte sont réussis, mais ils ne constituent pas une validation de conversations longues ni de phénomènes tels que les reprises pronominales, les négations multiples ou les questions composites.
 
 **Verdict : phase 3 expérimentale, non validée pour les élèves.** La bonne direction est un traitement prudent des ambiguïtés, mais 21/40 correctes sur des questions inédites reste insuffisant. Il ne faut ni changer les seuils sur ce lot ni annoncer de succès avant une nouvelle contre-épreuve indépendante. Aucun changement à DiagCore V1.3 ou aux cours.
+
+
+## Nouveau laboratoire de modèles conversationnels locaux (novembre 2026)
+
+**Prototype distinct du banc NLP.js existant :** [llm/index.html](llm/index.html), [llm/app.js](llm/app.js).
+
+Deux moteurs de génération locale sont proposés :
+- **Transformers.js 3.8.1** avec `onnx-community/Qwen3-0.6B-ONNX` (WebGPU, `q4f16`).
+- **WebLLM 0.2.88** avec un modèle `Qwen2.5-0.5B-Instruct-q4f16_1-MLC` ou, si absent du catalogue embarqué, `Qwen2-0.5B-Instruct-q4f16_1-MLC`.
+
+**Accès après activation de GitHub Pages sur `main`, dossier `/` :** https://chaoli22000bzh.github.io/diagcore-chat-lab/llm/
+
+La nouvelle page permet de charger **un modèle à la fois**, converser librement avec Camille à partir d'une fiche de faits fixe, évaluer chaque réponse (correcte, incorrecte, à préciser) et exporter un rapport JSON local avec les temps de réponse. Aucun appel à une API d'IA ne traite les questions. Le téléchargement initial des fichiers du modèle et des bibliothèques passe en revanche par des serveurs publics tiers, et le premier essai nécessite Internet.
+
+**Ce qui n'a pas été validé :**
+- Chargement réel du modèle et génération sur les navigateurs des élèves.
+- Compatibilité avec Firefox et les smartphones, mémoire disponible, vitesse, consommation énergétique.
+- Exactitude du français, fidélité de Camille aux faits, absence de révélations indésirables.
+- Fonctionnement sans réseau après le chargement ; les dépendances ne sont pas encore toutes hébergées localement.
+
+Le workflow [Contrôle statique LLM](.github/workflows/llm-static.yml) vérifie la syntaxe et les fichiers. **Un workflow vert n'est pas une preuve de chargement ou de qualité du modèle.**
+
+**Critères de décision :** qualité réelle d'une conversation, erreurs factuelles, informations inventées, durée du premier chargement, durée des réponses, capacité sur PC et téléphone. Aucun modèle n'est déclaré gagnant à ce stade.
+
+Ce laboratoire ne remplace pas DiagCore V1.3, ne modifie aucun cours et n'est pas encore destiné aux élèves.
